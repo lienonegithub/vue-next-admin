@@ -2,6 +2,30 @@
 
 🎉🎉🔥 `vue-next-admin` 基于 vue3.x 、Typescript、vite、Element plus 等，适配手机、平板、pc 的后台开源免费模板库（vue2.x 请切换 vue-prev-admin 分支）
 
+## 1.0.17
+
+`2021.08.22`
+
+- 🌟 更新 依赖更新最新版本
+- 🎯 优化 去除设置布局切换，重置主题样式（initSetLayoutChange），切换布局需手动设置样式，设置的样式自动同步各布局
+- 🎯 优化 Dropdown 下拉菜单用户账号靠边时换行问题
+- 🎯 优化 左侧导航菜单，共用菜单树，防止 `布局配置` 设置 `菜单 / 顶栏` 时，样式丢失等问题
+- 🐞 修复 固定 header 后没有回到顶部的 bug，拉取项目后运行不起来的 bug。<a href="https://gitee.com/lyt-top/vue-next-admin/pulls/14" target="_blank">!14</a>，感谢<a href="https://gitee.com/wjs0509" target="_blank">@wjs0509</a>
+- 🐞 修复 tagView 右键全屏后，浏览器窗口大小发生任何变化都会导致左边菜单显示出来，并且可点击打开对应页面。<a href="https://gitee.com/lyt-top/vue-next-admin/issues/I46E6T" target="_blank">I46E6T</a>
+- 🐞 修复 默认设置 `菜单 / 顶栏` 样式不生效问题（/@/src/store/modules/themeConfig.ts）
+
+## 1.0.16
+
+`2021.08.14`
+
+- 🌟 更新 依赖更新最新版本
+- 🎯 优化 菜单高亮（详情且详情设置了 meta.isHide 时，顶级菜单高亮），感谢群友@YourObject
+- 🎯 优化 详情路径写法：如父级（/pages/filtering），那么详情为（/pages/filtering/details?id=1）。这样写可实现（详情时，父级菜单高亮），否则写成（/pages/filteringDetails?id=1）顶级菜单将不会高亮。可参考：`页面/过滤筛选组件`，点击当前图片进行测试
+- 🎯 优化 tagsView 右键菜单全屏时，打开的界面高度问题
+- 🎯 优化 图表批量 resize 问题
+- 🐞 修复 菜单收起时（设置全局主题：primary 且有二级菜单时），文字高亮颜色不对
+- 🐞 修复 国际化 <a href="https://gitee.com/lyt-top/vue-next-admin/issues/I43NPE" target="_blank">#I43NPE</a>。可参考：`页面/过滤筛选组件`，点击顶部语言切换，进行底部分页国际化查看
+
 ## 1.0.15
 
 `2021.08.06`
