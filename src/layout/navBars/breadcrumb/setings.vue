@@ -146,7 +146,7 @@
 						<el-input-number
 							v-model="getThemeConfig.lockScreenTime"
 							controls-position="right"
-							:min="0"
+							:min="1"
 							:max="9999"
 							@change="setLocalThemeConfig"
 							size="mini"
@@ -232,6 +232,12 @@
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex mt15">
+					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fourIsDark') }}</div>
+					<div class="layout-breadcrumb-seting-bar-flex-value">
+						<el-switch v-model="getThemeConfig.isIsDark" @change="onAddDarkChange"></el-switch>
+					</div>
+				</div>
+				<div class="layout-breadcrumb-seting-bar-flex mt15">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fourIsWartermark') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
 						<el-switch v-model="getThemeConfig.isWartermark" @change="onWartermarkChange"></el-switch>
@@ -276,7 +282,7 @@
 						</el-select>
 					</div>
 				</div>
-				<div class="layout-breadcrumb-seting-bar-flex mt15 mb28">
+				<div class="layout-breadcrumb-seting-bar-flex mt15 mb27">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fiveColumnsAsideLayout') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
 						<el-select v-model="getThemeConfig.columnsAsideLayout" placeholder="请选择" size="mini" style="width: 90px" @change="setLocalThemeConfig">
@@ -364,6 +370,9 @@
 						ref="copyConfigBtnRef"
 						@click="onCopyConfigClick"
 						>{{ $t('message.layout.copyText') }}
+					</el-button>
+					<el-button size="small" class="copy-config-btn-reset" icon="el-icon-refresh-right" type="info" @click="onResetConfigClick"
+						>{{ $t('message.layout.resetText') }}
 					</el-button>
 				</div>
 			</el-scrollbar>
@@ -500,6 +509,12 @@ export default defineComponent({
 			appEle.setAttribute('style', `filter: ${cssAttr}`);
 			setLocalThemeConfig();
 		};
+		// 4、界面显示 --> 深色模式
+		const onAddDarkChange = () => {
+			const body = document.documentElement as HTMLElement;
+			if (getThemeConfig.value.isIsDark) body.setAttribute('data-theme', 'dark');
+			else body.setAttribute('data-theme', '');
+		};
 		// 4、界面显示 --> 开启水印
 		const onWartermarkChange = () => {
 			getThemeConfig.value.isWartermark ? Watermark.set(getThemeConfig.value.wartermarkText) : Watermark.del();
@@ -561,6 +576,11 @@ export default defineComponent({
 				getThemeConfig.value.isDrawer = false;
 			});
 		};
+		// 一键恢复默认
+		const onResetConfigClick = () => {
+			Local.clear();
+			window.location.reload();
+		};
 		// 修复防止退出登录再进入界面时，需要刷新样式才生效的问题，初始化布局样式等(登录的时候触发，目前方案)
 		const initSetStyle = () => {
 			setTimeout(() => {
@@ -601,6 +621,8 @@ export default defineComponent({
 					if (getThemeConfig.value.isGrayscale) onAddFilterChange('grayscale');
 					// 色弱模式
 					if (getThemeConfig.value.isInvert) onAddFilterChange('invert');
+					// 深色模式
+					if (getThemeConfig.value.isIsDark) onAddDarkChange();
 					// 开启水印
 					onWartermarkChange();
 					// 语言国际化
@@ -628,6 +650,7 @@ export default defineComponent({
 			getThemeConfig,
 			onDrawerClose,
 			onAddFilterChange,
+			onAddDarkChange,
 			onWartermarkChange,
 			onWartermarkTextInput,
 			onSetLayout,
@@ -637,6 +660,7 @@ export default defineComponent({
 			onSortableTagsViewChange,
 			onShareTagsViewChange,
 			onCopyConfigClick,
+			onResetConfigClick,
 		};
 	},
 });
@@ -773,7 +797,8 @@ export default defineComponent({
 			width: 100%;
 			margin-top: 15px;
 		}
-		.copy-config-last-btn {
+		.copy-config-btn-reset {
+			width: 100%;
 			margin: 10px 0 0;
 		}
 	}
