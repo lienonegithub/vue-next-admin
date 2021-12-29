@@ -3,10 +3,11 @@
 		<div class="login-logo">
 			<span>{{ getThemeConfig.globalViceTitle }}</span>
 		</div>
-		<div class="login-content" :class="{ 'login-content-mobile': tabsActiveName === 'mobile' }">
-			<div class="login-content-main">
-				<h4 class="login-content-title">{{ getThemeConfig.globalTitle }}后台模板</h4>
-				<div v-if="!isScan">
+		<div class="login-container-center">
+			<div class="image-content"></div>
+			<div class="login-content" :class="{ 'login-content-mobile': tabsActiveName === 'mobile' }">
+				<div class="login-content-main">
+					<h4 class="login-content-title">{{ getThemeConfig.globalTitle }}</h4>
 					<el-tabs v-model="tabsActiveName" @tab-click="onTabsClick">
 						<el-tab-pane :label="$t('message.label.one1')" name="account" :disabled="tabsActiveName === 'account'">
 							<transition name="el-zoom-in-center">
@@ -24,11 +25,6 @@
 						<el-button type="text" size="small">{{ $t('message.link.two4') }}</el-button>
 					</div>
 				</div>
-				<Scan v-else />
-				<div class="login-content-main-sacn" @click="isScan = !isScan">
-					<i class="iconfont" :class="isScan ? 'icon-diannao1' : 'icon-barcode-qr'"></i>
-					<div class="login-content-main-sacn-delta"></div>
-				</div>
 			</div>
 		</div>
 		<div class="login-copyright">
@@ -42,17 +38,16 @@
 import { toRefs, reactive, computed } from 'vue';
 import Account from '/@/views/login/component/account.vue';
 import Mobile from '/@/views/login/component/mobile.vue';
-import Scan from '/@/views/login/component/scan.vue';
 import { useStore } from '/@/store/index';
+
 export default {
 	name: 'loginIndex',
-	components: { Account, Mobile, Scan },
+	components: { Account, Mobile },
 	setup() {
 		const store = useStore();
 		const state = reactive({
 			tabsActiveName: 'account',
 			isTabPaneShow: true,
-			isScan: false,
 		});
 		// 获取布局配置信息
 		const getThemeConfig = computed(() => {
@@ -75,8 +70,9 @@ export default {
 .login-container {
 	width: 100%;
 	height: 100%;
-	background: url('https://gitee.com/lyt-top/vue-next-admin-images/raw/master/login/bg-login.png') no-repeat;
-	background-size: 100% 100%;
+	background: url('/@/assets/images/login/background.png') center no-repeat;
+	background-size: contain;
+	
 	.login-logo {
 		position: absolute;
 		top: 30px;
@@ -90,18 +86,24 @@ export default {
 		width: 90%;
 		transform: translateX(-50%);
 	}
+	.login-container-center {
+		@include wh(1184px, 792px);
+		@include ct();
+
+		display: flex;
+		.image-content {
+			@include wh(684px, 100%);
+
+			background: url('/@/assets/images/login/left-bg.png') center no-repeat;
+			background-size: cover;
+		}
+	}
 	.login-content {
-		width: 500px;
 		padding: 20px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%) translate3d(0, 0, 0);
+		flex: 1;
 		background-color: rgba(255, 255, 255, 0.99);
-		border: 5px solid var(--color-primary-light-8);
 		border-radius: 4px;
 		transition: height 0.2s linear;
-		height: 480px;
 		overflow: hidden;
 		z-index: 1;
 		.login-content-main {

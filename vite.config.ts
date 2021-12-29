@@ -35,6 +35,13 @@ const viteConfig: UserConfig = {
 			},
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@import 'src/theme/mixins/mixins.scss';`
+			}
+		}
+	},
 	build: {
 		outDir: 'dist',
 		minify: 'esbuild',
