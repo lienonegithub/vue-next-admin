@@ -18,7 +18,7 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 			 * 全局主题
 			 */
 			// 默认 primary 颜色，请注意：需要同时修改 `/@/theme/common/var.scss` 对应的值
-			primary: '#409eff',
+			primary: '#7A0B24',
 			// 默认 success 颜色，请注意：需要同时修改 `/@/theme/common/var.scss` 对应的值
 			success: '#67c23a',
 			// 默认 info 颜色，请注意：需要同时修改 `/@/theme/common/var.scss` 对应的值
@@ -105,7 +105,7 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 			// 是否开启水印
 			isWartermark: false,
 			// 水印文案
-			wartermarkText: 'small@小柒',
+			wartermarkText: 'BOC',
 
 			/**
 			 * 其它设置
@@ -138,7 +138,7 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 			 * 全局网站标题 / 副标题
 			 */
 			// 网站主标题（菜单导航、浏览器当前网页标题）
-			globalTitle: 'vue-next-admin',
+			globalTitle: '用户工作台系统',
 			// 网站副标题（登录页顶部文字）
 			globalViceTitle: 'BOC',
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn

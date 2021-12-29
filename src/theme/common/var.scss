@@ -6,8 +6,9 @@
 
 /* 定义初始颜色
 ------------------------------- */
-$--color-primary: #409eff !default;
+$--color-primary: #7A0B24 !default;
 $--color-whites: #ffffff !default;
+$--color-blue: #016BEA !default;
 $--color-primary-light-1: mix($--color-whites, $--color-primary, 10%) !default;
 $--color-primary-light-2: mix($--color-whites, $--color-primary, 20%) !default;
 $--color-primary-light-3: mix($--color-whites, $--color-primary, 30%) !default;
@@ -57,6 +58,9 @@ $--color-danger-light-6: mix($--color-whites, $--color-danger, 60%) !default;
 $--color-danger-light-7: mix($--color-whites, $--color-danger, 70%) !default;
 $--color-danger-light-8: mix($--color-whites, $--color-danger, 80%) !default;
 $--color-danger-light-9: mix($--color-whites, $--color-danger, 90%) !default;
+$--color-text-heavy: #303133;
+$--color-text-medium: #666666;
+$--color-text-light: #999999;
 $--bg-topBar: #ffffff;
 $--bg-menuBar: #545c64;
 $--bg-columnsMenuBar: #545c64;
@@ -69,6 +73,7 @@ $--bg-columnsMenuBarColor: #e6e6e6;
 :root {
 	--color-primary: #{$--color-primary};
 	--color-whites: #{$--color-whites};
+	--color-blue: #{$--color-blue};
 	--color-primary-light-1: #{$--color-primary-light-1};
 	--color-primary-light-2: #{$--color-primary-light-2};
 	--color-primary-light-3: #{$--color-primary-light-3};
@@ -118,6 +123,9 @@ $--bg-columnsMenuBarColor: #e6e6e6;
 	--color-danger-light-7: #{$--color-danger-light-7};
 	--color-danger-light-8: #{$--color-danger-light-8};
 	--color-danger-light-9: #{$--color-danger-light-9};
+	--color-text-heavy: #{$--color-text-heavy};
+	--color-text-medium: #{$--color-text-medium};
+	--color-text-light: #{$--color-text-light};
 	--bg-topBar: #{$--bg-topBar};
 	--bg-menuBar: #{$--bg-menuBar};
 	--bg-columnsMenuBar: #{$--bg-columnsMenuBar};

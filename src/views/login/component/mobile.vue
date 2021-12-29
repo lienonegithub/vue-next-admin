@@ -2,9 +2,7 @@
 	<el-form class="login-content-form">
 		<el-form-item>
 			<el-input type="text" :placeholder="$t('message.mobile.placeholder1')" v-model="ruleForm.userName" clearable autocomplete="off">
-				<template #prefix>
-					<i class="iconfont icon-dianhua el-input__icon"></i>
-				</template>
+				<template #prepend>+86</template>
 			</el-input>
 		</el-form-item>
 		<el-form-item>
@@ -22,8 +20,8 @@
 			</el-row>
 		</el-form-item>
 		<el-form-item>
-			<el-button type="primary" class="login-content-submit" round>
-				<span>{{ $t('message.mobile.btnText') }}</span>
+			<el-button type="primary" class="login-content-submit">
+				<span class="submit-text">{{ $t('message.mobile.btnText') }}</span>
 			</el-button>
 		</el-form-item>
 	</el-form>
@@ -56,9 +54,16 @@ export default defineComponent({
 	}
 	.login-content-submit {
 		width: 100%;
+		height: 48px;
 		letter-spacing: 2px;
 		font-weight: 300;
 		margin-top: 15px;
+
+		.submit-text {
+			font-size: 16px;
+			line-height: 24px;
+			font-weight: 500;
+		}
 	}
 }
 </style>

@@ -27,7 +27,7 @@
 				</template>
 			</el-input>
 		</el-form-item>
-		<el-form-item>
+		<!-- <el-form-item>
 			<el-row :gutter="15">
 				<el-col :span="16">
 					<el-input
@@ -49,10 +49,10 @@
 					</div>
 				</el-col>
 			</el-row>
-		</el-form-item>
+		</el-form-item> -->
 		<el-form-item>
-			<el-button type="primary" class="login-content-submit" round @click="onSignIn" :loading="loading.signIn">
-				<span>{{ $t('message.account.accountBtnText') }}</span>
+			<el-button type="primary" class="login-content-submit" @click="onSignIn" :loading="loading.signIn">
+				<span class="submit-text">{{ $t('message.account.accountBtnText') }}</span>
 			</el-button>
 		</el-form-item>
 	</el-form>
@@ -81,7 +81,6 @@ export default defineComponent({
 			ruleForm: {
 				userName: 'admin',
 				password: '123456',
-				code: '1234',
 			},
 			loading: {
 				signIn: false,
@@ -215,9 +214,16 @@ export default defineComponent({
 	}
 	.login-content-submit {
 		width: 100%;
+		height: 48px;
 		letter-spacing: 2px;
 		font-weight: 300;
 		margin-top: 15px;
+
+		.submit-text {
+			font-size: 16px;
+			line-height: 24px;
+			font-weight: 500;
+		}
 	}
 }
 </style>
