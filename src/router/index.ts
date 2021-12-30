@@ -7,6 +7,7 @@ import { NextLoading } from '/@/utils/loading';
 import { staticRoutes, dynamicRoutes } from '/@/router/route';
 import { initFrontEndControlRoutes } from '/@/router/frontEnd';
 import { initBackEndControlRoutes } from '/@/router/backEnd';
+import { whiteList } from '/@/router/route'
 
 /**
  * 创建一个可以被 Vue 应用程序使用的路由实例
@@ -193,7 +194,7 @@ router.beforeEach(async (to, from, next) => {
 	NProgress.configure({ showSpinner: false });
 	if (to.meta.title) NProgress.start();
 	const token = Session.get('token');
-	if (to.path === '/login' && !token) {
+	if (whiteList.includes(to.path) && !token) {
 		next();
 		NProgress.done();
 	} else {

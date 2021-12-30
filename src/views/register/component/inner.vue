@@ -1,0 +1,69 @@
+<template>
+	<el-form class="login-content-form">
+		<el-form-item>
+			<el-input type="text" :placeholder="$t('message.mobile.placeholder1')" v-model="ruleForm.userName" clearable autocomplete="off">
+				<template #prepend>+86</template>
+			</el-input>
+		</el-form-item>
+		<el-form-item>
+			<el-row :gutter="15">
+				<el-col :span="16">
+					<el-input type="text" maxlength="4" :placeholder="$t('message.mobile.placeholder2')" v-model="ruleForm.code" clearable autocomplete="off">
+						<template #prefix>
+							<el-icon class="el-input__icon"><elementPosition /></el-icon>
+						</template>
+					</el-input>
+				</el-col>
+				<el-col :span="8">
+					<el-button class="login-content-code">{{ $t('message.mobile.codeText') }}</el-button>
+				</el-col>
+			</el-row>
+		</el-form-item>
+		<el-form-item>
+			<el-button type="primary" class="login-content-submit">
+				<span class="submit-text">{{ $t('message.mobile.btnText') }}</span>
+			</el-button>
+		</el-form-item>
+	</el-form>
+</template>
+
+<script lang="ts">
+import { toRefs, reactive, defineComponent } from 'vue';
+export default defineComponent({
+	name: 'loginMobile',
+	setup() {
+		const state = reactive({
+			ruleForm: {
+				userName: '',
+				code: '',
+			},
+		});
+		return {
+			...toRefs(state),
+		};
+	},
+});
+</script>
+
+<style scoped lang="scss">
+.login-content-form {
+	margin-top: 20px;
+	.login-content-code {
+		width: 100%;
+		padding: 0;
+	}
+	.login-content-submit {
+		width: 100%;
+		height: 48px;
+		letter-spacing: 2px;
+		font-weight: 300;
+		margin-top: 15px;
+
+		.submit-text {
+			font-size: 16px;
+			line-height: 24px;
+			font-weight: 500;
+		}
+	}
+}
+</style>

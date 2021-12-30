@@ -1156,10 +1156,21 @@ export const staticRoutes: Array<RouteRecordRaw> = [
 	{
 		path: '/register',
 		name: 'register',
-		component: () => import('/@/views/register/index.vue'),
+		component: () => import('/@/layout/auth/index.vue'),
 		meta: {
 			title: '注册',
 		},
+		redirect: '/register',
+		children: [
+			{
+				path: '',
+				name: 'register-index',
+				component: () => import('/@/views/register/index.vue'),
+				meta: {
+					title: '注册',
+				},
+			}
+		]
 	},
 	{
 		path: '/404',
@@ -1198,3 +1209,11 @@ export const staticRoutes: Array<RouteRecordRaw> = [
 		},
 	},
 ];
+
+/**
+ * 定义路由白名单
+ */
+export const whiteList: string[] = [
+	'/login',
+	'/register'
+]

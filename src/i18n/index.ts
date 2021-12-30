@@ -14,6 +14,9 @@ import pagesHomeZhtw from '/@/i18n/pages/home/zh-tw';
 import pagesLoginZhcn from '/@/i18n/pages/login/zh-cn';
 import pagesLoginEn from '/@/i18n/pages/login/en';
 import pagesLoginZhtw from '/@/i18n/pages/login/zh-tw';
+import pagesRegisterZhcn from '/@/i18n/pages/register/zh-cn';
+import pagesRegisterEn from '/@/i18n/pages/register/en';
+import pagesRegisterZhtw from '/@/i18n/pages/register/zh-tw';
 import pagesFormI18nZhcn from '/@/i18n/pages/formI18n/zh-cn';
 import pagesFormI18nEn from '/@/i18n/pages/formI18n/en';
 import pagesFormI18nZhtw from '/@/i18n/pages/formI18n/zh-tw';
@@ -31,6 +34,7 @@ const messages = {
 			...nextZhcn,
 			...pagesHomeZhcn,
 			...pagesLoginZhcn,
+			...pagesRegisterZhcn,
 			...pagesFormI18nZhcn,
 		},
 	},
@@ -40,6 +44,7 @@ const messages = {
 			...nextEn,
 			...pagesHomeEn,
 			...pagesLoginEn,
+			...pagesRegisterEn,
 			...pagesFormI18nEn,
 		},
 	},
@@ -49,6 +54,7 @@ const messages = {
 			...nextZhtw,
 			...pagesHomeZhtw,
 			...pagesLoginZhtw,
+			...pagesRegisterZhtw,
 			...pagesFormI18nZhtw,
 		},
 	},

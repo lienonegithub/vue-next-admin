@@ -63,7 +63,6 @@ import { toRefs, reactive, defineComponent, computed, getCurrentInstance } from 
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useI18n } from 'vue-i18n';
-import { doLogin } from '/@/api/login/index'
 import { initFrontEndControlRoutes } from '/@/router/frontEnd';
 import { initBackEndControlRoutes } from '/@/router/backEnd';
 import { useStore } from '/@/store/index';
@@ -93,12 +92,6 @@ export default defineComponent({
 		});
 		// 登录
 		const onSignIn = async () => {
-			// api
-			const data = await doLogin({
-				username: state.ruleForm.userName,
-				password: state.ruleForm.password
-			})
-			console.log({ data })
 			// 模拟数据
 			state.loading.signIn = true;
 			let defaultRoles: Array<string> = [];
@@ -112,7 +105,7 @@ export default defineComponent({
 			// test 按钮权限标识
 			let testAuthBtnList: Array<string> = ['btn.add', 'btn.link'];
 			// 不同用户模拟不同的用户权限
-			if (state.ruleForm.userName === 'admin' || 'username1') {
+			if (state.ruleForm.userName === 'admin') {
 				defaultRoles = adminRoles;
 				defaultAuthBtnList = adminAuthBtnList;
 			} else {
@@ -157,7 +150,7 @@ export default defineComponent({
 			// 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径中
 			if (route.query?.redirect) {
 				router.push({
-					path: `${route.query?.redirect}`,
+					path: route.query?.redirect,
 					query: Object.keys(route.query?.params).length > 0 ? JSON.parse(route.query?.params) : '',
 				});
 			} else {

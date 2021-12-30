@@ -4,7 +4,7 @@ import { Session } from '/@/utils/storage';
 
 // 配置新建一个 axios 实例
 const service = axios.create({
-	baseURL: import.meta.env.VITE_API_URL as any,
+	baseURL: import.meta.env.VITE_API_URL as string | undefined,
 	timeout: 50000,
 	headers: { 'Content-Type': 'application/json' },
 });
@@ -14,7 +14,7 @@ service.interceptors.request.use(
 	(config) => {
 		// 在发送请求之前做些什么 token
 		if (Session.get('token')) {
-			config.headers.common['Authorization'] = `${Session.get('token')}`;
+			config.headers['X-Token'] = `${Session.get('token')}` as string;
 		}
 		return config;
 	},
@@ -27,6 +27,7 @@ service.interceptors.request.use(
 // 添加响应拦截器
 service.interceptors.response.use(
 	(response) => {
+		console.log({ response })
 		// 对响应数据做点什么
 		const res = response.data;
 		if (res.code && res.code !== 0) {
@@ -44,13 +45,14 @@ service.interceptors.response.use(
 		}
 	},
 	(error) => {
+		console.log({error})
 		// 对响应错误做点什么
 		if (error.message.indexOf('timeout') != -1) {
 			ElMessage.error('网络超时');
 		} else if (error.message == 'Network Error') {
 			ElMessage.error('网络连接错误');
 		} else {
-			if (error.response.data) ElMessage.error(error.response.statusText);
+			if (error.response.data) ElMessage.error(error.response.message);
 			else ElMessage.error('接口路径找不到');
 		}
 		return Promise.reject(error);

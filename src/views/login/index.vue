@@ -1,8 +1,5 @@
 <template>
 	<div class="login-container">
-		<div class="logo-content">
-			<span>{{ getThemeConfig.globalViceTitle }}</span>
-		</div>
 		<div class="login-container-center">
 			<div class="image-content"></div>
 			<div class="form-content">
@@ -76,19 +73,6 @@ export default {
 	background-size: contain;
 	padding: 144px 50px;
 	
-	.logo-content {
-		position: absolute;
-		top: 30px;
-		left: 50%;
-		height: 50px;
-		display: flex;
-		align-items: center;
-		font-size: 20px;
-		color: var(--color-primary);
-		letter-spacing: 2px;
-		width: 90%;
-		transform: translateX(-50%);
-	}
 	.login-container-center {
 		margin: 0 auto;
 		display: flex;
@@ -96,6 +80,8 @@ export default {
 		height: 100%;
 		min-height: 460px;
 		background-color: #fff;
+		border-radius: 8px;
+		overflow: hidden;
 
 		.image-content {
 			flex: 1;
@@ -104,17 +90,16 @@ export default {
 			background: url('/@/assets/images/login/left-bg.png') center no-repeat;
 			background-size: cover;
 		}
-	}
-	.form-content {
-		padding: 20px;
-		flex: 1;
-		background-color: rgba(255, 255, 255, 0.99);
-		border-radius: 4px;
-		transition: height 0.2s linear;
-		overflow: hidden;
-		z-index: 1;
-		display: flex;
-		align-items: center;
+		.form-content {
+			padding: 20px;
+			flex: 1;
+			background-color: rgba(255, 255, 255, 0.99);
+			transition: height 0.2s linear;
+			overflow: hidden;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+		}
 	}
 	
 	.login-content {
@@ -218,7 +203,7 @@ export default {
 		transform: translateX(-50%);
 		bottom: 30px;
 		text-align: center;
-		color: var(--color-whites);
+		color: var(--color-primary);
 		font-size: 12px;
 		opacity: 0.8;
 		.login-copyright-company {

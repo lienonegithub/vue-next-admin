@@ -55,9 +55,8 @@ module.exports = {
 		'generator-star-spacing': 'off',
 		'no-unreachable': 'off',
 		'no-multiple-template-root': 'off',
-		'no-unused-vars': 'error',
 		'no-v-model-argument': 'off',
 		'no-case-declarations': 'off',
-		'no-console': 'error',
+		'no-console': 'off',
 	},
 };
