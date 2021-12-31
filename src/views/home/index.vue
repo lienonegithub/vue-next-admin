@@ -115,18 +115,18 @@ export default {
 				data: [
 					{
 						date: '2016-05-02',
-						name: '1号实验室',
-						address: '烟感2.1%OBS/M',
+						name: '1号',
+						address: '****',
 					},
 					{
 						date: '2016-05-04',
-						name: '2号实验室',
-						address: '温度30℃',
+						name: '2号',
+						address: '****',
 					},
 					{
 						date: '2016-05-01',
-						name: '3号实验室',
-						address: '湿度57%RH',
+						name: '3号',
+						address: '****',
 					},
 				],
 			},

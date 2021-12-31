@@ -80,8 +80,8 @@ export default defineComponent({
 		const state = reactive({
 			isShowPassword: false,
 			ruleForm: {
-				userName: 'admin',
-				password: '123456',
+				userName: 'username1',
+				password: '1234',
 			},
 			loading: {
 				signIn: false,
@@ -112,7 +112,7 @@ export default defineComponent({
 			// test 按钮权限标识
 			let testAuthBtnList: Array<string> = ['btn.add', 'btn.link'];
 			// 不同用户模拟不同的用户权限
-			if (state.ruleForm.userName === 'admin' || 'username1') {
+			if (state.ruleForm.userName === 'admin') {
 				defaultRoles = adminRoles;
 				defaultAuthBtnList = adminAuthBtnList;
 			} else {

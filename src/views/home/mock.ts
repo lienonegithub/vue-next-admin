@@ -13,7 +13,7 @@ export const topCardItemList = [
 		icon: 'iconfont icon-jinridaiban',
 	},
 	{
-		title: '实验室总数',
+		title: '成果总数',
 		titleNum: '123',
 		tip: '使用中',
 		tipNum: '611',
@@ -39,26 +39,26 @@ export const topCardItemList = [
 export const environmentList = [
 	{
 		icon: 'iconfont icon-yangan',
-		label: '烟感',
-		value: '2.1%OBS/M',
+		label: '1',
+		value: '2.1',
 		iconColor: '#F72B3F',
 	},
 	{
 		icon: 'iconfont icon-wendu',
-		label: '温度',
-		value: '30℃',
+		label: '2',
+		value: '30',
 		iconColor: '#91BFF8',
 	},
 	{
 		icon: 'iconfont icon-shidu',
-		label: '湿度',
-		value: '57%RH',
+		label: '3',
+		value: '57',
 		iconColor: '#88D565',
 	},
 	{
 		icon: 'iconfont icon-zaosheng',
-		label: '噪声',
-		value: '57DB',
+		label: '4',
+		value: '57',
 		iconColor: '#FBD4A0',
 	},
 ];
@@ -72,7 +72,7 @@ export const activitiesList = [
 		time1: '今天',
 		time2: '12:20:30',
 		title: '更名',
-		label: '正式更名为 vue-next-admin',
+		label: '正式',
 	},
 	{
 		time1: '02-17',
